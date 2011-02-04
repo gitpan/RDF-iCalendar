@@ -1,10 +1,8 @@
-Still to do:
+* Still to do:
 
-	- VJOURNAL
-	- VTIMEZONE
-	- VALARM
-	- VFREEBUSY
+	- VTIMEZONE entities
+	- RELATED-TO properties
 
-Need to do more testing and polishing.
+* Need to do more testing and polishing.
 
-And of course iCalendar -> RDF.
+* And of course iCalendar -> RDF.
