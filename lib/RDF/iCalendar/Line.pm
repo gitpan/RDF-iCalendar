@@ -2,9 +2,9 @@ package RDF::iCalendar::Line;
 
 use 5.008;
 use base qw[RDF::vCard::Line];
-use common::sense;
+use strict;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 
 1;
 

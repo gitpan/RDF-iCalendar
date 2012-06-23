@@ -2,13 +2,16 @@ package RDF::iCalendar::Exporter;
 
 use 5.008;
 use base qw[RDF::vCard::Exporter];
-use common::sense;
+use strict;
 
 use DateTime;
 use MIME::Base64 qw[];
 use RDF::iCalendar::Entity;
 use RDF::iCalendar::Line;
-use RDF::TrineShortcuts qw[:all];
+use RDF::TrineX::Functions
+	-shortcuts,
+	statement => { -as => 'rdf_statement' },
+	iri       => { -as => 'rdf_resource' };
 use Scalar::Util qw[blessed];
 use URI;
 
@@ -20,9 +23,16 @@ sub V    { return 'http://www.w3.org/2006/vcard/ns#' . shift; }
 sub VX   { return 'http://buzzword.org.uk/rdf/vcardx#' . shift; }
 sub XSD  { return 'http://www.w3.org/2001/XMLSchema#' . shift; }
 
+sub flatten_node
+{
+	my $node = shift;
+	return $node->value if $node->is_resource || $node->is_literal;
+	return $node->as_ntriples;
+}
+
 use namespace::clean;
 
-our $VERSION = '0.002';
+our $VERSION = '0.003';
 our $PRODID  = sprintf("+//IDN cpan.org//NONSGML %s v %s//EN", __PACKAGE__, $VERSION);
 
 our %cal_dispatch = (
@@ -62,7 +72,7 @@ our %list_dispatch = (
 	IX('category')   => ['categories', \&_value_export_category],
 	);
 	
-sub rebless
+sub _rebless
 {
 	my ($self, $thing) = @_;
 	if ($thing->isa('RDF::vCard::Line'))
@@ -75,7 +85,7 @@ sub rebless
 	}
 }
 
-sub debug
+sub _debug
 {
 #	my ($self, @debug) = @_;
 #	printf(@debug);
@@ -203,19 +213,19 @@ sub export_component
 	
 	my $c = RDF::iCalendar::Entity->new( profile=>$profile );
 	
-	$self->debug("COMPONENT: %s", flatten_node($subject));
+	$self->_debug("COMPONENT: %s", flatten_node($subject));
 	
 	my $lists = {};
 	
 	my $triples = $model->get_statements($subject, undef, undef);
 	while (my $triple = $triples->next)
 	{
-		$self->debug("  %s %s", $triple->predicate->sse, $triple->object->sse);
+		$self->_debug("  %s %s", $triple->predicate->sse, $triple->object->sse);
 	
 		if (defined $dispatch{$triple->predicate->uri}
 		and ref($dispatch{$triple->predicate->uri}) eq 'CODE')
 		{
-			$self->debug("   -> dispatch");
+			$self->_debug("   -> dispatch");
 			my $code = $dispatch{$triple->predicate->uri};
 			my $r    = $code->($self, $model, $triple);
 			if (blessed($r) and $r->isa('RDF::iCalendar::Line'))
@@ -226,20 +236,20 @@ sub export_component
 		elsif (defined $list_dispatch{$triple->predicate->uri}
 		and ref($list_dispatch{$triple->predicate->uri}) eq 'ARRAY')
 		{
-			$self->debug("   -> list_dispatch");
+			$self->_debug("   -> list_dispatch");
 			my ($listname, $code) = @{ $list_dispatch{$triple->predicate->uri} };
 			push @{ $lists->{$listname} }, $code->($self, $model, $triple);
 		}
 		elsif ((substr($triple->predicate->uri, 0, length(&I)) eq &I
 		or substr($triple->predicate->uri, 0, length(&IX)) eq &IX))
 		{
-			$self->debug("   -> default");
+			$self->_debug("   -> default");
 			$c->add($self->_prop_export_simple($model, $triple))
 				unless $triple->object->is_blank;
 		}
 		else
 		{
-			$self->debug("   -> NO ACTION");
+			$self->_debug("   -> NO ACTION");
 		}
 	}
 	
@@ -268,7 +278,7 @@ sub _prop_export_simple
 {
 	my ($self, $model, $triple) = @_;
 	my $rv = $self->SUPER::_prop_export_simple($model, $triple);
-	return $self->rebless($rv);
+	return $self->_rebless($rv);
 }
 
 # iCalendar forces different datetime/date formats than
@@ -458,11 +468,11 @@ sub _prop_export_location
 {
 	my ($self, $model, $triple) = @_;
 
-	$self->debug("      Location: %s", flatten_node($triple->object));
+	$self->_debug("      Location: %s", flatten_node($triple->object));
 
 	if ($triple->object->is_literal)
 	{
-		$self->debug("       -> literal");
+		$self->_debug("       -> literal");
 		return $self->_prop_export_simple($model, $triple);
 	}
 
@@ -478,7 +488,7 @@ sub _prop_export_location
 			)
 		)
 	{
-		$self->debug("       -> vcard");
+		$self->_debug("       -> vcard");
 		my $card = $self->export_card($model, $triple->object);
 		return RDF::iCalendar::Line->new(
 			property => 'location',
@@ -506,8 +516,8 @@ sub _prop_export_location
 			)
 		)
 	{
-		$self->debug("       -> adr");
-		my $line = $self->rebless( $self->_prop_export_adr($model, $triple) );
+		$self->_debug("       -> adr");
+		my $line = $self->_rebless( $self->_prop_export_adr($model, $triple) );
 		$line->{property} = 'location';
 		return $line;
 	}
@@ -524,8 +534,8 @@ sub _prop_export_location
 			)
 		)
 	{
-		$self->debug("       -> geo");
-		my $line = $self->rebless( $self->SUPER::_prop_export_geo($model, $triple) );
+		$self->_debug("       -> geo");
+		my $line = $self->_rebless( $self->SUPER::_prop_export_geo($model, $triple) );
 		$line->{property} = 'location';
 		return $line;
 	}

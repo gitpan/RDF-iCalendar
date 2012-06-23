@@ -1,11 +1,13 @@
 package RDF::iCalendar;
 
 use 5.008;
-use common::sense;
+use strict;
 use RDF::iCalendar::Exporter;
-use RDF::iCalendar::Importer;
 
-our $VERSION = '0.002';
+BEGIN {
+	$RDF::iCalendar::AUTHORITY = 'cpan:TOBYINK';
+	$RDF::iCalendar::VERSION   = '0.003';
+}
 
 1;
 
