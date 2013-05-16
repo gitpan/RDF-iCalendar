@@ -15,6 +15,8 @@ use RDF::TrineX::Functions
 use Scalar::Util qw[blessed];
 use URI;
 
+require RDF::vCard;
+
 # kinda constants
 sub I    { return 'http://www.w3.org/2002/12/cal/icaltzd#' . shift; }
 sub IX   { return 'http://buzzword.org.uk/rdf/icaltzdx#' . shift; }
@@ -32,7 +34,7 @@ sub flatten_node
 
 use namespace::clean;
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 our $PRODID  = sprintf("+//IDN cpan.org//NONSGML %s v %s//EN", __PACKAGE__, $VERSION);
 
 our %cal_dispatch = (
@@ -961,8 +963,13 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2011 Toby Inkster
+Copyright 2011, 2013 Toby Inkster
 
-This library is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
+=head1 DISCLAIMER OF WARRANTIES
+
+THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.

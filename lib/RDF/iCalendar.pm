@@ -6,7 +6,7 @@ use RDF::iCalendar::Exporter;
 
 BEGIN {
 	$RDF::iCalendar::AUTHORITY = 'cpan:TOBYINK';
-	$RDF::iCalendar::VERSION   = '0.003';
+	$RDF::iCalendar::VERSION   = '0.004';
 }
 
 1;
@@ -15,7 +15,7 @@ __END__
 
 =head1 NAME
 
-RDF::iCalendar - convert between RDF and iCalendar
+RDF::iCalendar - convert from RDF to iCalendar
 
 =head1 DESCRIPTION
 
@@ -59,8 +59,13 @@ Toby Inkster E<lt>tobyink@cpan.orgE<gt>.
 
 =head1 COPYRIGHT
 
-Copyright 2011 Toby Inkster
+Copyright 2011, 2013 Toby Inkster
 
-This library is free software; you can redistribute it and/or modify it
-under the same terms as Perl itself.
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
+=head1 DISCLAIMER OF WARRANTIES
+
+THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, WITHOUT LIMITATION, THE IMPLIED WARRANTIES OF
+MERCHANTIBILITY AND FITNESS FOR A PARTICULAR PURPOSE.
