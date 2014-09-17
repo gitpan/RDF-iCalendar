@@ -3,6 +3,8 @@ package RDF::iCalendar::Exporter;
 use 5.008;
 use base qw[RDF::vCard::Exporter];
 use strict;
+use warnings;
+no warnings qw(uninitialized);
 
 use DateTime;
 use MIME::Base64 qw[];
@@ -34,7 +36,7 @@ sub flatten_node
 
 use namespace::clean;
 
-our $VERSION = '0.004';
+our $VERSION = '0.005';
 our $PRODID  = sprintf("+//IDN cpan.org//NONSGML %s v %s//EN", __PACKAGE__, $VERSION);
 
 our %cal_dispatch = (

@@ -13,12 +13,11 @@ DESCRIPTION
     RDF::vCard::Importer will do the reverse, but doesn't exist yet.
 
   RDF::iCalendar::Entity
-    An RDF::iCalendar::Entity objects is an individual iCalendar calendar.
-    It overloads stringification, so just treat it like a string.
+    An RDF::iCalendar::Entity objects is an individual iCalendar calendar. It
+    overloads stringification, so just treat it like a string.
 
   RDF::iCalendar::Line
-    RDF::iCalendar::Line is internal fu that you probably don't want to
-    touch.
+    RDF::iCalendar::Line is internal fu that you probably don't want to touch.
 
 BUGS
     Please report any bugs to
@@ -37,8 +36,8 @@ AUTHOR
 COPYRIGHT
     Copyright 2011, 2013 Toby Inkster
 
-    This is free software; you can redistribute it and/or modify it under
-    the same terms as the Perl 5 programming language system itself.
+    This is free software; you can redistribute it and/or modify it under the
+    same terms as the Perl 5 programming language system itself.
 
 DISCLAIMER OF WARRANTIES
     THIS PACKAGE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS OR IMPLIED

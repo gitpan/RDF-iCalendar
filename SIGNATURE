@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.70.
+signed via the Module::Signature module, version 0.73.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,48 +14,31 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 294505f858f11dd062e9916e3f50d88210a9ef54 CONTRIBUTING
-SHA1 b064c1a1d02a9ed8d9e715df69398c0bc9d50f26 COPYRIGHT
-SHA1 3b15e5ac905b2485ad8afa31cf375e9e7afbae71 CREDITS
-SHA1 74d508fde763f672c78e21c5c5d409538d668d98 Changes
-SHA1 937d452c5c4069f4cda9ffaf45a33f1eb5f060e8 LICENSE
-SHA1 6f6f25119babfca09a4c7d0432311c3369863848 MANIFEST
-SHA1 405f1c828b8b0b9cdda02d1baeba8f2b08d245d8 META.ttl
-SHA1 1ced1fba2190fb3cd92937be02e5e4f12bb58078 META.yml
-SHA1 cdb0a8b531e0a5b24063c5cca2ad1b6f825fe96a Makefile.PL
-SHA1 99de9c8b6ade1cecd43c77eea346184f55630fed README
+SHA1 33317486c4fa2cf7fec85bf92ed38ac0f64233a0 CONTRIBUTING
+SHA1 b6c86935d4ce30a70ba9e48d2dc374b56209f715 COPYRIGHT
+SHA1 5abeac54ef4164f5931983fe14f0c5fc2ed3ec6b CREDITS
+SHA1 22446c11790ed8f18fe938e95a86b2587d342a8b Changes
+SHA1 73e2c1eeb1effd40d60a170ae45ecee185ba68de INSTALL
+SHA1 34f5e12514b91055de4b164a1f2327ef5c30ba53 LICENSE
+SHA1 5bfd55191e33a33a9f9ba14eec6363d9784639df MANIFEST
+SHA1 832431c2f9148b854089e021783cef66383e9d1e META.json
+SHA1 a3baf83293a34885a8479d24aec872fd32e3586f META.yml
+SHA1 1f7dc3dc99342062a9d57972703622f50c5f304c Makefile.PL
+SHA1 5664226eee8b48eadc856f0e07d45cc8823bde49 README
 SHA1 7d21eb9d82cc0da834f6f8fb3a8688f81d95ce5b TODO
+SHA1 e7d06ae1517321f1deff880f2db505c296fcc494 dist.ini
+SHA1 0f993b4453e0ad8fae6fb8a345d725ca588263c5 doap.ttl
 SHA1 d32e9803f67a72cb912c0e6b735d784db2fb3662 examples/example1.pl
-SHA1 06c410f05488c1612ed66b06d3a86b2580581e4a inc/Module/AutoInstall.pm
-SHA1 8a924add836b60fb23b25c8506d45945e02f42f4 inc/Module/Install.pm
-SHA1 61ab1dd37e33ddbe155907ce51df8a3e56ac8bbf inc/Module/Install/AutoInstall.pm
-SHA1 c04f94f91fa97b9f8cfb5a36071098ab0e6c78e3 inc/Module/Install/AutoManifest.pm
-SHA1 2d0fad3bf255f8c1e7e1e34eafccc4f595603ddc inc/Module/Install/Base.pm
-SHA1 f0e01fff7d73cd145fbf22331579918d4628ddb0 inc/Module/Install/Can.pm
-SHA1 7328966e4fda0c8451a6d3850704da0b84ac1540 inc/Module/Install/Fetch.pm
-SHA1 66d3d335a03492583a3be121a7d888f63f08412c inc/Module/Install/Include.pm
-SHA1 b62ca5e2d58fa66766ccf4d64574f9e1a2250b34 inc/Module/Install/Makefile.pm
-SHA1 1aa925be410bb3bfcd84a16985921f66073cc1d2 inc/Module/Install/Metadata.pm
-SHA1 3b9281ddf7dd6d6f5de0a9642c69333023193c80 inc/Module/Install/Package.pm
-SHA1 41f76ff6b39368a65da86377e43b34bacc2fb0eb inc/Module/Install/TrustMetaYml.pm
-SHA1 e4196994fa75e98bdfa2be0bdeeffef66de88171 inc/Module/Install/Win32.pm
-SHA1 c3a6d0d5b84feb3280622e9599e86247d58b0d18 inc/Module/Install/WriteAll.pm
-SHA1 26d58a041cd6b3d21db98b32e8fd1841aae21204 inc/Module/Package.pm
-SHA1 5a2f84a7a82eee0d1e5ed3628fe503a608efc10f inc/Module/Package/Dist/RDF.pm
-SHA1 feb933cefe2e3762e8322bd6071a2499f3440da1 inc/YAML/Tiny.pm
-SHA1 4b7d14713903f437cd7d5ea7ab4d7df7a7213996 lib/RDF/iCalendar.pm
-SHA1 a8ea6ed42fe8ce79a6d4be3dcd7124fe4960792c lib/RDF/iCalendar/Entity.pm
-SHA1 38cb06f7832cd2acd6df5d88b812925b7f3e1e9d lib/RDF/iCalendar/Exporter.pm
-SHA1 5c2bc97ec875ae1406d6d54778bcdc61a207dbe6 lib/RDF/iCalendar/Line.pm
-SHA1 94a4b8e2f3158a9850214c2ecb78018fbd8ea38b meta/changes.pret
-SHA1 90e1e5c8756cead5549c1ee96dec9ddac09a4929 meta/doap.ttl
-SHA1 119a642c8f2d694ddf4935a5824369735375654f meta/makefile.ttl
+SHA1 67bfe4cb50df503aa9d308054cd2d0ebcf4fb36a lib/RDF/iCalendar.pm
+SHA1 fb58f2ce5332e08310620685bc4a2bb940f34efe lib/RDF/iCalendar/Entity.pm
+SHA1 bcdc7d0e9bf9cdaf03d7970bd3ae2992d49239b3 lib/RDF/iCalendar/Exporter.pm
+SHA1 68ff6f014004dfda58e66605ec903199a63c2487 lib/RDF/iCalendar/Line.pm
 SHA1 c356758da772331ac071f66161248e87968db8b8 t/01basic.t
 SHA1 7a7256658dad791fca6c9fd2d72aa51765ec37e6 t/02rdf2ical.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.11 (GNU/Linux)
+Version: GnuPG v1
 
-iEYEARECAAYFAlGVaRAACgkQzr+BKGoqfTl6ggCgrLNtGtTQE2TwRJyes14SsCRm
-N7YAn2KkjtdUn7svEkNX8ZSvQkZA7e2e
-=Qpup
+iEYEARECAAYFAlQZ+E8ACgkQzr+BKGoqfTl6qACguE+zxmJagHlrQ9CKt/PAxkmB
+1HoAnAsqgdb7GWQaUFeQ3Wn32G01UNIq
+=sQBt
 -----END PGP SIGNATURE-----

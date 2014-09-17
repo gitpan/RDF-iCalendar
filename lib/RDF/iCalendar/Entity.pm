@@ -3,8 +3,10 @@ package RDF::iCalendar::Entity;
 use 5.008;
 use base qw[RDF::vCard::Entity];
 use strict;
+use warnings;
+no warnings qw(uninitialized);
 
-our $VERSION = '0.004';
+our $VERSION = '0.005';
 
 1;
 
